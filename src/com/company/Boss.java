@@ -3,18 +3,20 @@ package com.company;
 public class Boss extends GameEntity {
     Weapon weapon = new Weapon();
 
-    public Weapon getWeapon () {
+    public Boss(int health, int damage) {
+        super(health, damage);
+    }
+
+    public Weapon getWeapon() {
         return weapon;
     }
 
     public void setWeapon(Weapon weapon) {
-    this. weapon = weapon;
+        this.weapon = weapon;
     }
-    public Boss printInfo (int heignt, int damage) {
-        super(heignt, damage);
-    }
+
     public String info(){
-        return "HP:"
-+setHeight() +getDamage() +getSword() + "" +getFiery();
+        return "HP: " + getHealth() + "\nDAMAGE: " + getDamage() + "\nWeaponFiery: " +
+                weapon.getWeapon_fiery() + " \nWeaponSword: " + weapon.getWeapon_sword();
     }
 }

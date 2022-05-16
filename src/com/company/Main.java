@@ -1,28 +1,21 @@
 package com.company;
 
-import java.nio.channels.SelectionKey;
-import java.rmi.Remote;
-import java.rmi.server.Operation;
-import java.rmi.server.RemoteCall;
-import java.rmi.server.Skeleton;
-
 public class Main {
 
-    public static void main(String[] args){
-        Boss baiden =new Boss();
-       baiden. setHeight(250);
-       baiden. setDamage(20);
-       Sistem.out. printin(baiden.info);
-        Skeleton skeleton = new Skeleton() {
-            @Override
-            public void dispatch(Remote obj, RemoteCall theCall, int opnum, long hash) throws Exception {
-
-            }
-
-            @Override
-            public Operation[] getOperations() {
-                return new Operation[0];
-            }
-        }
+    public static void main(String[] args) {
+        Boss baiden = new Boss(250, 20);
+        baiden.weapon.setWeapon_fiery("pistol");
+        baiden.weapon.setWeapon_sword("Desert Eagle");
+        Skeleton skeleton = new Skeleton(300, 15, 30);
+        skeleton.weapon.setWeapon_sword("meadow");
+        skeleton.weapon.setWeapon_fiery("fiery meadow");
+        Skeleton skeleton1 = new Skeleton(350, 10, 25);
+        skeleton1.weapon.setWeapon_sword("meadow");
+        skeleton1.weapon.setWeapon_fiery("ice meadow");
+        System.out.println(baiden.info());
+        System.out.println("-------------------------");
+        System.out.println(skeleton.printInfo());
+        System.out.println("-------------------------");
+        System.out.println(skeleton1.printInfo());
     }
 }
